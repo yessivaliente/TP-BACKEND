@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Peluche</title>
+    <link rel="stylesheet" href="public/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="icon" href="public/img/peluche.ico">
+</head>
+<body>
+    <h1>Detalles del Peluche</h1>
+    <div id="detallePeluche">
+        <!-- Aquí se mostrarán dinámicamente los detalles del peluche -->
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const pelucheID = urlParams.get('id');
+    
+            // Hacer la solicitud GET al servidor para obtener los detalles del peluche por ID
+            axios.get(`http://localhost:3000/detalle-peluche/${pelucheID}`)
+                .then(response => {
+                    const peluche = response.data;
+                    // Mostrar los detalles del peluche en el HTML
+                    const detallePeluche = document.getElementById('detallePeluche');
+                    detallePeluche.innerHTML = `
+                        <h2>${peluche.nombre}</h2>
+                        <p><strong>Descripción:</strong> ${peluche.descripcion}</p>
+                        <p><strong>Precio:</strong> $${peluche.precio}</p>
+                        <!-- Añade más detalles según tu estructura de datos -->
+                    `;
+                })
+                .catch(error => {
+                    console.error('Error al obtener detalles del peluche:', error);
+                    // Mostrar un mensaje de error en el HTML si es necesario
+                    const detallePeluche = document.getElementById('detallePeluche');
+                    detallePeluche.innerHTML = '<p>Error al cargar los detalles del peluche.</p>';
+                });
+        });
+    </script>
+</body>
+</html>

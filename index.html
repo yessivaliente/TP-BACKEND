@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Peluches de Anime</title>
+    <link rel="stylesheet" href="public/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="icon" href="public/img/peluche.ico">
+</head>
+<body>
+    <header>
+        <h1>Tienda de Peluches de Anime</h1>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#peluches">Peluches</a></li>
+                <li><a href="#carrito">Carrito</a></li>
+                <li><a href="mayoristas.html">Registro Clientes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio">
+            <h2>Bienvenido a nuestra tienda de peluches de anime</h2>
+            <p>¡Encontra los peluches más lindos de tus personajes favoritos!</p>
+            <img src="public/img/portada.jpg" alt="Imagen Translúcida">
+        </section>
+
+        <section id="peluches">
+            <!-- Contenido de peluches -->
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="productos">
+                <div class="col">
+                    <div class="card">
+                        <img src="public/img/rubio.png" class="card-img-top" alt="rubio">
+                        <div class="card-body">
+                            <span class="precio">$20000</span>
+                            <button onclick="agregarAlCarrito('Peluche 1', 20000)"class="btn btn-primary">Agregar al carrito</button>
+                            <a href="/detalle-peluche?id=1" target="_blank" class="btn btn-link ver-detalles-btn">Ver detalles</a>
+                        </div>
+                    </div>  
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <img src="public/img/peluche2.jpg"class="card-img-top" alt="Peluche 2">
+                        <div class="card-body">
+                            <span class="precio">$25000</span>
+                            <button onclick="agregarAlCarrito('Peluche 2', 25000)"class="btn btn-primary">Agregar al carrito</button>
+                            <a href="/detalle-peluche?id=2" target="_blank" class="btn btn-link ver-detalles-btn">Ver detalles</a>
+                        </div>
+                        </div>   
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <img src="public/img/lufy7.jpg" class="card-img-top" alt="lufy7">
+                        <div class="card-body">
+                            <span class="precio">$28000</span>
+                            <button onclick="agregarAlCarrito('Peluche 3', 28000)" class="btn btn-primary">Agregar al carrito</button>
+                            <a href="/detalle-peluche?id=3" target="_blank" class="btn btn-link ver-detalles-btn">Ver detalles</a>
+                        </div>  
+                    </div>
+                    </div>    
+                <div class="col">
+                    <div class="card">
+                        <img src="public/img/pikachu.jpg" class="card-img-top" alt="pikachu">
+                        <div class="card-body">
+                            <span class="precio">$30000</span>
+                            <button onclick="agregarAlCarrito('Peluche 4', 30000)" class="btn btn-primary">Agregar al carrito</button>
+                            <a href="/detalle-peluche?id=4" target="_blank" class="btn btn-link ver-detalles-btn">Ver detalles</a>
+                        </div> 
+                    </div>    
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <img src="public/img/sukuna.jpg"class="card-img-top" alt="sukuna">
+                    <div class="card-body">
+                        <span class="precio">$29000</span>
+                        <button onclick="agregarAlCarrito('Peluche 5', 29000)"class="btn btn-primary" >Agregar al carrito</button>
+                        <a href="/detalle-peluche?id=5" target="_blank" class="btn btn-link ver-detalles-btn">Ver detalles</a>
+                    </div>      
+                    </div>   
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <img src="public/img/dino.jpg" class="card-img-top" alt="dino">
+                        <div class="card-body">
+                            <span class="precio">$29000</span>
+                            <button onclick="agregarAlCarrito('Peluche 6', 29000)"class="btn btn-primary">Agregar al carrito</button>
+                            <a href="/detalle-peluche?id=6" target="_blank" class="btn btn-link ver-detalles-btn">Ver detalles</a>
+                        </div>   
+                    </div>    
+                </div>
+                <div class="col">
+                    <div class=" card">
+                        <img src="public/img/zoro.jpg" class="card-img-top" alt="zoro">
+                        <div class="card-body">
+                            <span class="precio">$29000</span>
+                            <button onclick="agregarAlCarrito('Peluche 7', 29000)"class="btn btn-primary">Agregar al carrito</button>
+                            <a href="/detalle-peluche?id=7" target="_blank" class="btn btn-link ver-detalles-btn">Ver detalles</a>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col">
+                    <div class=" card">
+                        <img src="public/img/tanjiro.jpg" class="card-img-top" alt="tanjiro">
+                        <div class="card-body">
+                            <span class="precio">$21000</span>
+                            <button onclick="agregarAlCarrito('Peluche 8', 21000)"class="btn btn-primary">Agregar al carrito</button>
+                            <a href="/detalle-peluche?id=8" target="_blank" class="btn btn-link ver-detalles-btn">Ver detalles</a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <section id="Video">
+            <h2>Video Promocional</h2>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/EjSDy5wP2oE" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </section>
+        
+
+        <section id="carrito">
+            <h2>Carrito de Compras</h2>
+            <ul id="lista-carrito"></ul>
+            <p>Total: <span id="total-carrito">$0</span></p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="redes-sociales">
+            <h3>Síguenos en redes sociales:</h3>
+            <ul>
+                <li><a href="https://www.facebook.com/tu_empresa" target="_blank">Facebook</a></li>
+                <li><a href="https://www.twitter.com/tu_empresa" target="_blank">Twitter</a></li>
+                <li><a href="https://www.instagram.com/tu_empresa" target="_blank">Instagram</a></li>
+                <!-- Agrega más redes sociales -->
+            </ul>
+        </div>
+        <div class="informacion-contacto">
+            <h3>Información de contacto:</h3>
+            <p>Teléfono: 11-4564-7890</p>
+            <p>Email: info@tiendadepeluches.com</p>
+            <p>Dirección: Viamonte 1352, Ciudad Autónoma de Buenos Aires, Argentina.</p>
+        </div>
+        <p>&copy; 2024 Tienda de Peluches de Anime</p>
+    </footer>
+    <script src="script.js"></script>
+    <script src="envioDeForm(POST).js"></script>
+</body>
+</html>
