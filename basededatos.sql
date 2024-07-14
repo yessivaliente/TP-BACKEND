@@ -70,3 +70,4 @@ SELECT Clientes.Nombre, Clientes.ClienteID, Pedidos.PedidoID, Pedidos.Total, Ped
 FROM Clientes
 JOIN Pedidos ON Clientes.ClienteID = Pedidos.Cliente_ID
 ORDER BY Pedidos.PedidoID ASC
+

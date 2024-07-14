@@ -1,9 +1,9 @@
 const express = require('express');
-const mysql = require('mysql2');
+const mysql = require('mysql');
 const bodyParser = require('body-parser');
 
 const app = express();
-const port = 3308; // Puerto en el que se ejecutará el servidor
+const port = 3000; // Puerto en el que se ejecutará el servidor
 
 // Configuración de Body Parser para parsear application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Configuración de conexión a MySQL
-const mysql = require('mysql2');
+const mysql = require('mysql');
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Ruta para la página principal
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'index.html'));
+    res.sendFile(path.join(__dirname, 'views', 'index.html','detalle-peluche.html'));
 });
 
 // Ruta para la página de detalles del peluche
@@ -90,9 +90,6 @@ app.post('/registrarCliente', (req, res) => {
 app.listen(port, () => {
     console.log(`Servidor corriendo en http://localhost:${port}`);
 });
-
-
-
 // Ruta para manejar el PUT de modificación de clientes
 app.put('/modificarCliente/:id', (req, res) => {
     const clienteID = req.params.id;
