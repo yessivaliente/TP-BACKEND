@@ -42,7 +42,7 @@ VALUES ('Maria', 'Corrientes 3210', 'CABA', 1010, 'maria@gmail.com', 'Mujer');
 INSERT INTO Clientes (Nombre, Direccion, Ciudad, codigo_postal, Email, Genero)
 VALUES ('Juliana Lopez', 'Av Scalabrini Ortiz 565', 'CABA', 1235, 'julopez@gmail.com', 'Mujer');
 
-INSERT INTO Pedidos (Cliente_ID, Fecha, Total)
+INSERT INTO Pedidos (Cliente_ID, Fecha, Total) 
 VALUES(2, '2024-03-02', 12800);
 INSERT INTO Pedidos (Cliente_ID, Fecha, Total)
 VALUES(1, '2024-06-15', 101385);

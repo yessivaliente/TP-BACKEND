@@ -12,10 +12,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Configuración de conexión a MySQL
+const mysql = require('mysql');
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '38927141',
+    password: 'y171092*',
     database: 'basededatos'
 });
 
@@ -115,3 +116,6 @@ app.get('/detalle-peluche/:id', (req, res) => {
 app.listen(port, () => {
     console.log(`Servidor Node.js corriendo en http://localhost:${port}`);
 });
+
+
+
