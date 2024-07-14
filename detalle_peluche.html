@@ -9,38 +9,38 @@
     <link rel="icon" href="public/img/peluche.ico">
 </head>
 <body>
-    <h1>Detalles del Peluche</h1>
-    <div id="detallePeluche">
-        <!-- Aquí se mostrarán dinámicamente los detalles del peluche -->
-    </div>
+    <header>
+        <h1>Detalles del Peluche</h1>
+    </header>
+    <main>
+        <div id="peluche-detalles"></div>
+         <!-- Aquí se mostrarán dinámicamente los detalles del peluche -->
+    </main>
+    <footer>
+        <p>&copy; 2024 Tienda de Peluches de Anime</p>
+    </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="app.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const pelucheID = urlParams.get('id');
-    
-            // Hacer la solicitud GET al servidor para obtener los detalles del peluche por ID
-            axios.get(`http://localhost:3000/detalle-peluche/${pelucheID}`)
-                .then(response => {
-                    const peluche = response.data;
-                    // Mostrar los detalles del peluche en el HTML
-                    const detallePeluche = document.getElementById('detallePeluche');
-                    detallePeluche.innerHTML = `
-                        <h2>${peluche.nombre}</h2>
-                        <p><strong>Descripción:</strong> ${peluche.descripcion}</p>
-                        <p><strong>Precio:</strong> $${peluche.precio}</p>
-                        <!-- Añade más detalles según tu estructura de datos -->
-                    `;
-                })
-                .catch(error => {
-                    console.error('Error al obtener detalles del peluche:', error);
-                    // Mostrar un mensaje de error en el HTML si es necesario
-                    const detallePeluche = document.getElementById('detallePeluche');
-                    detallePeluche.innerHTML = '<p>Error al cargar los detalles del peluche.</p>';
-                });
-        });
+         const urlParams = new URLSearchParams(window.location.search);
+        const pelucheId = urlParams.get('id');
+
+        fetch(`/detalle-peluche?id=${pelucheId}`)
+            .then(response => response.json())
+            .then(data => {
+                const detallesDiv = document.getElementById('peluche-detalles');
+                detallesDiv.innerHTML = `
+                    <h2>${data.Nombre}</h2>
+                    <img src="${data.imagen_url}" alt="${data.Nombre}">
+                    <p>Precio: $${data.Precio}</p>
+                    <p>Tamaño: ${data.tamano} cm</p>
+                    <p>Descripción: ${data.descripcion}</p>
+                `;
+            })
+            .catch(error => {
+                console.error('Error al obtener los detalles del peluche:', error);
+            });
     </script>
 </body>
 </html>

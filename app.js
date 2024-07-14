@@ -1,9 +1,9 @@
 const express = require('express');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 
 const app = express();
-const port = 3000; // Puerto en el que se ejecutará el servidor
+const port = 3308; // Puerto en el que se ejecutará el servidor
 
 // Configuración de Body Parser para parsear application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Configuración de conexión a MySQL
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -28,6 +28,40 @@ connection.connect(error => {
         console.log('Conectado a MySQL correctamente.');
     }
 });
+// Configurar middleware para servir archivos estáticos
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Ruta para la página principal
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'index.html'));
+});
+
+// Ruta para la página de detalles del peluche
+app.get('/detalle-peluche', (req, res) => {
+    const pelucheId = req.query.id;
+    connection.query('SELECT * FROM peluches WHERE id = ?', [pelucheId], (error, results) => {
+        if (error) {
+            console.error('Error en la consulta: ', err);
+            res.status(500).send('Error en la consulta');
+            return;
+        }
+        if (results.length > 0) {
+            res.json(results[0]);
+        } else {
+            res.status(404).send('Peluche no encontrado');
+        }
+    });
+});
+
+// Ruta para servir la página de detalles del peluche
+app.get('/detalle', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'detalle_peluche.html'));
+});
+
+app.listen(port, () => {
+    console.log(`Servidor escuchando en http://localhost:${port}`);
+});
+
 
 // Ruta para manejar el POST del formulario de registro de clientes
 app.post('/registrarCliente', (req, res) => {
